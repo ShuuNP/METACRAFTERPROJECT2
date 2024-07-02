@@ -10,27 +10,31 @@ contract MyToken {
 
     function mint(address _address, uint _value) public {
         require(_address != address(0), "Invalid address");
-        require(_value > 50, "Value must be greater than 50");
+        require(_value > 49, "Value must be greater than 49");
+
+
+
         totalSupply += _value;
         balances[_address] += _value;
+
+         assert(balances[_address] <= totalSupply);
+
+        if (balances[_address] > totalSupply) {
+            revert("Assertion failed: Invalid total supply after minting");
+        }
     }
+
 
     error InsufficientBalance(string);
 
     function burn(address _address, uint _value) public {
         require(_address != address(0), "Invalid address");
-        require(_value >= 50, "Value must be greater or equal than 50");
+        require(_value >= 50, "Value must be greater or equal to 50");
         require(balances[_address] >= _value, "Insufficient balance to burn");
-        if (balances[_address] < _value) {
-            revert InsufficientBalance("Balance is less than the amount to be burned");
-        }
+
         totalSupply -= _value;
         balances[_address] -= _value;
     }
 
-    // Example function using assert
-    function divide(uint a, uint b) public pure returns (uint) {
-        assert(b != 0);
-        return a / b;
-    }
 }
+
