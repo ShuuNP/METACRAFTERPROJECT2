@@ -1,32 +1,32 @@
-# MyToken Smart Contract
+## Prerequisites
+This contract is written in Solidity and requires a version between 0.7.0 and 0.9.0.
 
-## Overview
+## Features
+- **Seller Management:** The contract initializes with the deployer as the seller.
+- **Account Validation:** Only valid accounts (set by the seller) can set or modify the price.
+- **Price Management:** Valid accounts can set a new price or apply a discount to the current price.
+- **Price Reset:** Only the seller can reset the price to zero.
 
-`MyToken` is an improved version of a previous token contract project. This version demonstrates the use of `require()`, `assert()`, and `revert()` statements for error handling and validation. The contract includes functionality to mint new tokens, burn existing tokens, and handle division operations with error checking.
+## Usage
+- first add your account address to the valid account, you may add multiple addresses to simulate multiple moderators or seller.
+![image](https://github.com/ShuuNP/METACRAFTERPROJECT2/assets/91449806/99e65ab3-95a4-404a-a536-cdf0d59fc013)
 
+- add your price and click setprice (Or transact)
+![image](https://github.com/ShuuNP/METACRAFTERPROJECT2/assets/91449806/3e958717-4275-4d5b-8fe2-6aa0da9131aa)
 
-## Functions
+- you may check if the price is now added by click the price button.
+![image](https://github.com/ShuuNP/METACRAFTERPROJECT2/assets/91449806/2aa496d4-d700-4d3c-a7fd-81e1e6dd8282)
 
-### mint
+- add discount, TAKE NOTE that this is in percentage, when you input 20, it means 20% not 20units off!
+- you may also resetPrice if needed
+- click price again to check if it worked.
+![image](https://github.com/ShuuNP/METACRAFTERPROJECT2/assets/91449806/2a510702-be1e-482c-9ac1-52537cd886f7)
 
-Mints new tokens and adds them to the balance of the specified address. This function uses the `require()` statement to ensure that the address is valid and the value is greater than 50. ( for this project i used 50, but it can be anything based on your requirements.)
-
-## USAGE
-![image](https://github.com/ShuuNP/METACRAFTERPROJECT2/assets/91449806/34654f87-cbac-4eb2-9532-56352c6ce9fb)
-
-when `minting` a value above 50 this will show, but if lesser an error with error description will show.
-as shown below.
-![image](https://github.com/ShuuNP/METACRAFTERPROJECT2/assets/91449806/f6c5fecb-016e-4da5-b538-704574f4b1ac)
-
-
-For `burning`, we can assume a scenario a specific price burn is 50 or above so first require is that it should be higer than 50, and of course the obvious one is that it should be lesser than the total supply we have currently.
-
-if we tried to burn less than 50 an error description will show
-![image](https://github.com/ShuuNP/METACRAFTERPROJECT2/assets/91449806/d0f7ed47-7af0-4cff-9da5-d99fb54eb6f9)
-
-and if greater than total supply an error will show.
-![image](https://github.com/ShuuNP/METACRAFTERPROJECT2/assets/91449806/dc71d19c-22c2-4f2d-a561-713c923f8e15)
+- Additional feature: you make input the address if it is one of the valid accounts, it will return true if it is otherwise it will return false
+![image](https://github.com/ShuuNP/METACRAFTERPROJECT2/assets/91449806/cd9ed2d2-ab40-4494-9a8c-e983704b8ee0)
 
 
-
+CONTACT
+THOMAS GABRIELLE C. MANUEL
+tomgab21@gmail.com
 
